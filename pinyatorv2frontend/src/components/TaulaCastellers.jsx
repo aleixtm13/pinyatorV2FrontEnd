@@ -1,29 +1,80 @@
 import React from 'react'
-import BodyTaulaCastellers from './BodyTaulaCastellers';
+import DataTable from 'react-data-table-component';
+import { useState, useEffect } from 'react';
+
+import BASE_API_PATH from '../utils/constants';
 
 const TaulaCastellers = () => {
 
+  const [castellers, setCastellers] = useState([]);
+
+  useEffect(() => {
+    fetch(`${BASE_API_PATH}/castellers`)
+      .then((res) => res.json())
+      .then((data) => {setCastellers(data)});
+  });
+
+  const columns = [
+    {
+      name: 'Casteller_ID',
+      selector: row => row.Casteller_ID,
+      sortable: true,
+    },
+    {
+      name: 'MalNom',
+      selector: row => row.MalNom,
+      sortable: false,
+    },
+    {
+      name: 'Nom',
+      selector: row => row.Nom,
+      sortable: false,
+    },
+    {
+      name: 'Cognom 1',
+      selector: row => row.Cognom_1,
+      sortable: false,
+    },
+    {
+      name: 'Cognom 2',
+      selector: row => row.Cognom_2,
+      sortable: false,
+    },
+    {
+      name: 'POSICIO_PINYA_ID',
+      selector: row => row.POSICIO_PINYA_ID,
+      sortable: false,
+    },
+    {
+      name: 'POSICIO_TRONC_ID',
+      selector: row => row.POSICIO_TRONC_ID,
+      sortable: false,
+    },
+    {
+      name: 'Altura',
+      selector: row => row.Altura,
+      sortable: false,
+    },
+    {
+      name: 'Estat',
+      selector: row => row.Estat,
+      sortable: false,
+    }
+  ];
+
+  const data = [];
+  castellers.map(casteller => (
+    data.push(casteller)
+  ))
 
   return (
-    <div className='text-white border border-white items-center'>
-        <table className='table-auto'>
-            <thead className='flex'>
-                <tr>
-                    <th className='px-3'>ID</th>
-                    <th className='px-3'>Malnom</th>
-                    <th className='px-3'>Nom</th>
-                    <th className='px-3'>Cognoms</th>
-                    <th className='px-3'>Posicio Pinya</th>
-                    <th className='px-3'>Posicio Troncs</th>
-                    <th className='px-3'>Altura</th>
-                    <th className='px-3'>Estat</th>
-                </tr>
-            </thead>
-            <tbody>
-              <BodyTaulaCastellers/>
-            </tbody>
-        </table>
-    </div>
+    <DataTable 
+      columns={columns}
+      data={data}
+      responsive={true}
+      highlightOnHover={true}
+      theme="dark"
+    />
   )
 }
 

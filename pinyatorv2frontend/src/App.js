@@ -17,13 +17,6 @@ import BASE_API_PATH from './utils/constants';
 
 const App = () => {
 
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    fetch(`${BASE_API_PATH}/users`)
-      .then((res) => res.json())
-      .then((data) => setUser(data[0]));
-  }, []);
 
   return (
     <div>
