@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Castellers from './pages/Castellers';
+import Configuracio from './pages/Configuracio';
+import Assajos from './pages/Assajos';
+import Esdeveniments from './pages/Esdeveniments';
+import Planificacio from './pages/Planificacio';
+import Plantilles from './pages/Plantilles';
+import Estadistiques from './pages/Estadistiques';
+
 import BASE_API_PATH from './utils/constants';
+
 
 
 const App = () => {
@@ -17,6 +28,16 @@ const App = () => {
   return (
     <div>
       <Navbar/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/castellers' element={<Castellers/>}/>
+        <Route path='/esdeveniments' element={<Esdeveniments/>}/>
+        <Route path='/plantilles' element={<Plantilles/>}/>
+        <Route path='/assajos' element={<Assajos/>}/>
+        <Route path='/estadistiques' element={<Estadistiques/>}/>
+        <Route path='/planificacio' element={<Planificacio/>}/>
+        <Route path='/configuracio' element={<Configuracio/>}/>
+      </Routes>
     </div>
   );
 }
