@@ -10,6 +10,7 @@ import Esdeveniments from './pages/Esdeveniments';
 import Planificacio from './pages/Planificacio';
 import Plantilles from './pages/Plantilles';
 import Estadistiques from './pages/Estadistiques';
+import AddCasteller from './pages/AddCasteller';
 
 import BASE_API_PATH from './utils/constants';
 
@@ -17,13 +18,13 @@ import BASE_API_PATH from './utils/constants';
 
 const App = () => {
 
-
   return (
     <div>
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/castellers' element={<Castellers/>}/>
+        <Route path='/castellers/add' element={<AddCasteller/>}/>
         <Route path='/esdeveniments' element={<Esdeveniments/>}/>
         <Route path='/plantilles' element={<Plantilles/>}/>
         <Route path='/assajos' element={<Assajos/>}/>
