@@ -41,17 +41,12 @@ const AddCasteller = () => {
       state: estat
     }
 
-
-    console.log("body nostre:", JSON.stringify(bodyReq));
-
-
     const requestOptions = {
       method: "POST",
-      body: JSON.stringify({}),
+      body: JSON.stringify(bodyReq),
       headers: {"Content-type": "application/json; charset=UTF-8"}
     };
-
-    {/* Peta d'alguna manera perquè passa el body de la request buit al servidor. */}
+    
     fetch(`${BASE_API_PATH}/addcasteller`,requestOptions)
       .then(response => {response.json(); console.log("respjson: ", response)})
       .then(data => {console.log("Data: ", data)})
