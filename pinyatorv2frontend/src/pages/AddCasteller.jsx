@@ -1,11 +1,12 @@
 import React from 'react';
-import { useRef, setState} from 'react';
+import { useRef } from 'react';
 import BASE_API_PATH from '../utils/constants';
+import { BASE_WEB_URL } from '../utils/constants';
 
 const AddCasteller = () => {
 
-  {/* Refs dels inputs del formulari que farem servir per després
-      crear la http request per el servidor que inserti el casteller. */}
+  /* Refs dels inputs del formulari que farem servir per després
+      crear la http request per el servidor que inserti el casteller. */
   const malnomRef = useRef();
   const alturaRef = useRef();
   const forcaRef = useRef();
@@ -49,7 +50,7 @@ const AddCasteller = () => {
     
     fetch(`${BASE_API_PATH}/addcasteller`,requestOptions)
       .then(response => {response.json(); console.log("respjson: ", response)})
-      .then(data => {console.log("Data: ", data)})
+      .then(data => {console.log("Data: ", data); window.location.replace(`${BASE_WEB_URL}/castellers`);})
       .catch((err) => console.log("Error: ", err));
 
   }
@@ -63,7 +64,7 @@ const AddCasteller = () => {
         <br/>
         <input className="text-black text-xl border-[3px] border-rounded border-gray-500" id="malnom" type="text" ref={malnomRef} required/>
       </div>
-      <div className='ffont-bold text-3xl text-gray-400 mb-3'>
+      <div className='font-bold text-3xl text-gray-400 mb-3'>
         <label htmlFor="Nom">Nom</label>
         <br/>
         <input className="text-black text-xl border-[3px] border-rounded border-gray-500" id="nom" type="text" ref={nomRef} required/>
