@@ -11,7 +11,7 @@ const TaulaUsuaris = () => {
     fetch(`${BASE_API_PATH}/users`)
       .then((res) => res.json())
       .then((data) => {setUsuaris(data)});
-  });
+  }, []);
 
   const columns = [
     {
