@@ -13,6 +13,7 @@ import Estadistiques from './pages/Estadistiques';
 import AddCasteller from './pages/AddCasteller';
 
 import BASE_API_PATH from './utils/constants';
+import AddUsuari from './pages/AddUsuari';
 
 
 
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/estadistiques' element={<Estadistiques/>}/>
         <Route path='/planificacio' element={<Planificacio/>}/>
         <Route path='/configuracio' element={<Configuracio/>}/>
+        <Route path='/configuracio/adduser' element={<AddUsuari/>}/>
       </Routes>
     </div>
   );
