@@ -8,6 +8,7 @@ const Castellers = () => {
   {/* Ha de mostrar una taula amb els atributs importants de tots els castellers de la base de dades */}
   return (
     <div>
+      <h1 className='text-white text-3xl font-bold underline justify-center flex'>Castellers</h1>
       <Link to="add">
       <button className="m-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
         Nou Casteller
