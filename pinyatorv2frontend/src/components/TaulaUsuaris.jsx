@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
-import { Link } from 'react-router-dom';
 import BASE_API_PATH from '../utils/constants';
 
 const TaulaUsuaris = () => {
