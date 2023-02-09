@@ -24,7 +24,7 @@ const TaulaCastellers = () => {
       headers: {"Content-type": "application/json; charset=UTF-8"}
     };
 
-    fetch(`${BASE_API_PATH}/delete`, reqOptions)
+    fetch(`${BASE_API_PATH}/deletecasteller`, reqOptions)
     .then(response => {response.json(); console.log("respjson: ", response)})
     .then(data => {console.log("Data: ", data); window.location.replace(`${BASE_WEB_URL}/castellers`);})
     .catch((err) => console.log("Error: ", err));
