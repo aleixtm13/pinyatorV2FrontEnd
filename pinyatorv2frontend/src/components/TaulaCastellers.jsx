@@ -15,8 +15,7 @@ const TaulaCastellers = () => {
   }, []);
 
   
-  function deleteCasteller(id){
-
+  function deleteCasteller(id) {
     const bodyReq = { idCasteller: id };
     const reqOptions = {
       method: 'POST',
@@ -88,7 +87,7 @@ const TaulaCastellers = () => {
     {
       id: 'boto',
       button: true,
-      cell: row =>(<button onclick={deleteCasteller(row.Casteller_ID)} className="m-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">Delete</button>)
+      cell: row =>(<button onClick={() => deleteCasteller(row.Casteller_ID)} className="m-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded">Delete</button>)
     }
   ];
 
