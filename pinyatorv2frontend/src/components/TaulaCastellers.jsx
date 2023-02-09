@@ -3,6 +3,7 @@ import DataTable from 'react-data-table-component';
 import { useState, useEffect } from 'react';
 
 import BASE_API_PATH from '../utils/constants';
+import { BASE_WEB_URL } from '../utils/constants';
 
 const TaulaCastellers = () => {
 
@@ -25,6 +26,7 @@ const TaulaCastellers = () => {
 
     fetch(`${BASE_API_PATH}/delete`, reqOptions)
     .then(response => {response.json(); console.log("respjson: ", response)})
+    .then(data => {console.log("Data: ", data); window.location.replace(`${BASE_WEB_URL}/castellers`);})
     .catch((err) => console.log("Error: ", err));
   }
 
@@ -94,7 +96,7 @@ const TaulaCastellers = () => {
   const data = [];
   castellers.map(casteller => (
     data.push(casteller)
-  ))
+  ));
 
   return (
     <DataTable 
